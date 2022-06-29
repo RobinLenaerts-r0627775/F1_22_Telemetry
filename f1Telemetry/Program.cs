@@ -1,8 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using f1Telemetry.Data;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 
 
@@ -22,23 +24,18 @@ while (true)
     IPEndPoint server = new IPEndPoint(IPAddress.Any, 20777);
 
     byte[] packet = client.Receive(ref server);
-    Console.WriteLine(packet.Length);
-    if(packet.Length == 972)
+    var header = PacketHeader.FromArray(packet.SubArray(0, 24));
+    Console.WriteLine(header.m_packetId);
+    switch (header.m_packetId)
     {
-        var header = packet.SubArray(2, 2);
-        Console.WriteLine("first byte = " + BitConverter.ToInt16(header));
-        var laptime = packet.SubArray(24, 4);
-        //if (BitConverter.IsLittleEndian)
-        //    Array.Reverse(laptime);
+        case 0:
 
-        uint i = BitConverter.ToUInt32(laptime, 0);
-        var time = TimeSpan.FromMilliseconds(i);
-        var timestring = "" + time.Minutes + ":" + time.Seconds + ":" +time.Milliseconds;
-        Console.WriteLine("laptime: {0}", timestring);
+            break;
     }
+
 }
 public static class Extensions
-{
+{ 
     public static T[] SubArray<T>(this T[] array, int offset, int length)
     {
         T[] result = new T[length];
