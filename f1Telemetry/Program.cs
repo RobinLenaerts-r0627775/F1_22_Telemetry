@@ -18,17 +18,19 @@ catch (Exception ex)
 {
     Debug.WriteLine(ex.Message);
 }
+
 while (true)
 {
-
     IPEndPoint server = new IPEndPoint(IPAddress.Any, 20777);
-
     byte[] packet = client.Receive(ref server);
     var header = PacketHeader.FromArray(packet.SubArray(0, 24));
     switch (header.m_packetId)
     {
         case 0:
-            var data = new PacketMotionData(packet);
+            var motionPacket = new PacketMotionData(packet);
+            break;
+        case 1:
+            var sessionPacket = new PacketSessionData(packet);
             break;
     }
 }
