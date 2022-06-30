@@ -1,5 +1,10 @@
 ﻿namespace f1Telemetry.Data
 {
+    /**
+     * This part comes with every packet. 
+     * Size: 24 Bytes
+     * 
+     **/
     [Serializable]
     public class PacketHeader
     {
@@ -7,7 +12,7 @@
         public sbyte m_gameMinorVersion;        // Game minor version - "1.XX"
         public sbyte m_gameMajorVersion;        // Game major version - "X.00"
         public sbyte m_packetVersion;           // Version of this packet type, all start from 1
-        public sbyte m_packetId;                // Identifier for the packet type, see below
+        public sbyte m_packetId;                // Identifier for the packet type
         public ulong m_sessionUID;              // Unique identifier for the session
         public float m_sessionTime;             // Session timestamp
         public uint m_frameIdentifier;         // Identifier for the frame the data was retrieved on

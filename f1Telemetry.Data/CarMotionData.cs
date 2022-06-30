@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace f1Telemetry.Data
 {
+     /**
+      * General Car Data
+      * Size: 60 bytes
+     **/ 
+
     public class CarMotionData
     {
         public float m_worldPositionX;           // World space X position

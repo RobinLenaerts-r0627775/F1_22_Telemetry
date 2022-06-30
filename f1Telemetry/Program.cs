@@ -25,21 +25,10 @@ while (true)
 
     byte[] packet = client.Receive(ref server);
     var header = PacketHeader.FromArray(packet.SubArray(0, 24));
-    Console.WriteLine(header.m_packetId);
     switch (header.m_packetId)
     {
         case 0:
-
+            var data = new PacketMotionData(packet);
             break;
-    }
-
-}
-public static class Extensions
-{ 
-    public static T[] SubArray<T>(this T[] array, int offset, int length)
-    {
-        T[] result = new T[length];
-        Array.Copy(array, offset, result, 0, length);
-        return result;
     }
 }
