@@ -35,10 +35,10 @@ while (true)
         case 2:
             var lapDataPacket = new PacketLapData(packet);
             break;
-        /*case 3:
-            var eventPacket = new PacketSessionData(packet);
+        case 3:
+            var eventPacket = new PacketEventData(packet);
             break;
-        case 4:
+        /*case 4:
             var participantsPacket = new PacketSessionData(packet);
             break;
         case 5:
