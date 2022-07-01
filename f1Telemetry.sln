@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "f1Telemetry", "f1Telemetry\f1Telemetry.csproj", "{B0971AD1-1E98-482A-99F2-B39C40ED86BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "f1Telemetry", "f1Telemetry\f1Telemetry.csproj", "{B0971AD1-1E98-482A-99F2-B39C40ED86BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "f1Telemetry.Data", "f1Telemetry.Data\f1Telemetry.Data.csproj", "{03FC4B40-A175-4326-95DD-B116D9014BBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "f1Telemetry.Data", "f1Telemetry.Data\f1Telemetry.Data.csproj", "{03FC4B40-A175-4326-95DD-B116D9014BBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "f1Telemetry.UI", "f1Telemetry.UI\f1Telemetry.UI.csproj", "{E6FAB62B-A30C-4DE2-AA81-CB9B6FC7C904}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{03FC4B40-A175-4326-95DD-B116D9014BBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03FC4B40-A175-4326-95DD-B116D9014BBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03FC4B40-A175-4326-95DD-B116D9014BBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6FAB62B-A30C-4DE2-AA81-CB9B6FC7C904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6FAB62B-A30C-4DE2-AA81-CB9B6FC7C904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6FAB62B-A30C-4DE2-AA81-CB9B6FC7C904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6FAB62B-A30C-4DE2-AA81-CB9B6FC7C904}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

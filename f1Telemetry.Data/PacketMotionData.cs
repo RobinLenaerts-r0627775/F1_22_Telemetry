@@ -32,9 +32,9 @@ namespace f1Telemetry.Data
         public float m_angularAccelerationZ;        // Angular velocity z-component
         public float m_frontWheelsAngle;            // Current front wheels angle in radians
 
-        public PacketMotionData (byte[] bytes)
+        public PacketMotionData (byte[] packet)
         {
-            var reader = new BinaryReader(new MemoryStream(bytes));
+            var reader = new BinaryReader(new MemoryStream(packet));
             var m_header = PacketHeader.FromArray(reader.ReadBytes(24));
 
             for (int i = 0; i < 22; i++)
@@ -74,7 +74,6 @@ namespace f1Telemetry.Data
             m_angularAccelerationZ = reader.ReadSingle();
             m_frontWheelsAngle = reader.ReadSingle();
 
-            Console.WriteLine("reddit");
 ;        }
     }
 }

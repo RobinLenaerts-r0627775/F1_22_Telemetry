@@ -32,5 +32,35 @@ while (true)
         case 1:
             var sessionPacket = new PacketSessionData(packet);
             break;
+        case 2:
+            var lapDataPacket = new PacketLapData(packet);
+            break;
+        /*case 3:
+            var eventPacket = new PacketSessionData(packet);
+            break;
+        case 4:
+            var participantsPacket = new PacketSessionData(packet);
+            break;
+        case 5:
+            var carSetupsPacket = new PacketSessionData(packet);
+            break;
+        case 6:
+            var carTelemetryPacket = new PacketSessionData(packet);
+            break;
+        case 7:
+            var carStatusPacket = new PacketSessionData(packet);
+            break;
+        case 8:
+            var finalClassificationPacket = new PacketSessionData(packet);
+            break;
+        case 9:
+            var lobbyInfoPacket = new PacketSessionData(packet);
+            break;
+        case 10:
+            var carDamagePacket = new PacketSessionData(packet);
+            break;
+        case 11:
+            var sessionHistoryPacket = new PacketSessionData(packet);
+            break;*/
     }
 }
