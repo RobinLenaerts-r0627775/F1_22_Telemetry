@@ -25,5 +25,7 @@ namespace f1Telemetry.Data
         float[] m_tyresPressure = new float[4];         // Tyres pressure (PSI)
         byte[] m_surfaceType = new byte[4];           // Driving surface, see appendices
 
+
+
     }
 }
