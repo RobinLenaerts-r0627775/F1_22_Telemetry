@@ -45,6 +45,21 @@ namespace f1Telemetry.Data
             s.m_rearCamber = reader.ReadSingle();
             s.m_frontToe = reader.ReadSingle();
             s.m_rearToe = reader.ReadSingle();
+            s.m_frontSuspension = reader.ReadByte();
+            s.m_rearSuspension = reader.ReadByte();
+            s.m_frontAntiRollBar = reader.ReadByte();
+            s.m_rearAntiRollBar = reader.ReadByte();
+            s.m_frontSuspensionHeight = reader.ReadByte();
+            s.m_rearSuspensionHeight = reader.ReadByte();
+            s.m_brakePressure = reader.ReadByte();
+            s.m_brakeBias = reader.ReadByte();
+            s.m_rearLeftTyrePressure = reader.ReadSingle();
+            s.m_rearRightTyrePressure = reader.ReadSingle();
+            s.m_frontLeftTyrePressure = reader.ReadSingle();
+            s.m_frontRightTyrePressure = reader.ReadSingle();
+            s.m_ballast = reader.ReadByte();
+            s.m_fuelLoad = reader.ReadSingle();
+
 
             return s;
         }

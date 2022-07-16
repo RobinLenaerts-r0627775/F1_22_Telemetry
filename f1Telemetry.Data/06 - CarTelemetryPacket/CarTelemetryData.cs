@@ -25,7 +25,42 @@ namespace f1Telemetry.Data
         float[] m_tyresPressure = new float[4];         // Tyres pressure (PSI)
         byte[] m_surfaceType = new byte[4];           // Driving surface, see appendices
 
-
+        public static CarTelemetryData FromArray(byte[] packet)
+        {
+            var reader = new BinaryReader(new MemoryStream(packet));
+            var carTelemetryData = new CarTelemetryData();
+            carTelemetryData.m_speed = reader.ReadUInt16();
+            carTelemetryData.m_throttle = reader.ReadSingle();
+            carTelemetryData.m_steer = reader.ReadSingle();
+            carTelemetryData.m_brake = reader.ReadSingle();
+            carTelemetryData.m_clutch = reader.ReadByte();
+            carTelemetryData.m_gear= reader.ReadSByte();
+            carTelemetryData.m_engineRPM = reader.ReadUInt16();
+            carTelemetryData.m_drs = reader.ReadByte();
+            carTelemetryData.m_revLightsPercent = reader.ReadByte();
+            carTelemetryData.m_revLightsBitValue = reader.ReadUInt16();
+            for (int i = 0; i < 4; i++)
+            {
+                carTelemetryData.m_brakesTemperature[i] = reader.ReadUInt16();
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                carTelemetryData.m_tyresSurfaceTemperature[i] = reader.ReadByte();
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                carTelemetryData.m_tyresInnerTemperature[i] = reader.ReadByte();
+            }
+            carTelemetryData.m_engineTemperature = reader.ReadUInt16();
+            for (int i = 0; i < 4; i++)
+            {
+                carTelemetryData.m_tyresPressure[i] = reader.ReadSingle();
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                carTelemetryData.m_surfaceType[i] = reader.ReadByte();
+            }
+        }
 
     }
 }

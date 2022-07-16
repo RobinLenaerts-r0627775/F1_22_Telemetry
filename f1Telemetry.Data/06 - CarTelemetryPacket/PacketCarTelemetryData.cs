@@ -20,7 +20,20 @@ namespace f1Telemetry.Data
 
         byte m_mfdPanelIndexSecondaryPlayer;   // See above
         sbyte m_suggestedGear;       // Suggested gear for the player (1-8)
-                                    // 0 if no gear suggested
+                                     // 0 if no gear suggested
 
+
+        public PacketCarTelemetryData(byte[] packet)
+        {
+            var reader = new BinaryReader(new MemoryStream(packet));
+            var m_header = PacketHeader.FromArray(reader.ReadBytes(24));
+
+            var bytes = //TODO: 
+            for (int i = 0; i < 22; i++)
+            {
+                m_carTelemetryData[i] = CarTelemetryData.FromArray(packet);
+            }
+
+        }
     }
 }
