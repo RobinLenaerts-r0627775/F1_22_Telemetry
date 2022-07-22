@@ -4,26 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace f1Telemetry.Data
+namespace f1Telemetry.Data;
+
+public class PacketCarSetupData
 {
-    public class PacketCarSetupData
+    PacketHeader m_header; // Header
+
+    CarSetupData[] m_carSetups = new CarSetupData[22];
+
+    public PacketCarSetupData(byte[] packet)
     {
-        PacketHeader m_header; // Header
+        var reader = new BinaryReader(new MemoryStream(packet));
+        var m_header = PacketHeader.FromArray(reader.ReadBytes(24));
 
-        CarSetupData[] m_carSetups = new CarSetupData[22];
 
-        public PacketCarSetupData(byte[] packet)
+        var bytes = reader.ReadBytes(56);
+        for (int i = 0; i < 22; i++)
         {
-            var reader = new BinaryReader(new MemoryStream(packet));
-            var m_header = PacketHeader.FromArray(reader.ReadBytes(24));
-
-
-            var bytes = reader.ReadBytes(56);
-            for (int i = 0; i < 22; i++)
-            {
-                m_carSetups[i] = CarSetupData.FromArray(bytes);
-            }
+            m_carSetups[i] = CarSetupData.FromArray(bytes);
         }
-
     }
+
 }
