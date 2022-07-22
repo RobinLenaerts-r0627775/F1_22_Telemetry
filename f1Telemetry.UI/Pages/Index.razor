@@ -7,14 +7,19 @@
 <h1>F1 Telemetry!</h1>
 
 <p>
-    @number
+    @UDPService.Test
 </p>
 
 @code {
-    private int number;
+
 
     protected override void OnInitialized()
     {
-        number = 1;
+        Task.Run(() => {
+            while (true) {
+                UDPService.Count();
+            }
+        });
+        UDPService.Count();
     }
 }

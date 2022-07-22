@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Compile Remove="07 - CarSetupPacket\**" />
-    <Compile Remove="07 - CarStatusPacket\**" />
     <Compile Remove="08 - FinalClassificationPacket\**" />
     <Compile Remove="09 - LobbyInfoPacket\**" />
     <Compile Remove="10 - CarDamagePacket\**" />
@@ -17,7 +16,6 @@
     <Compile Remove="8 - FinalClassificationPacket\**" />
     <Compile Remove="9 - LobbyInfoPacket\**" />
     <EmbeddedResource Remove="07 - CarSetupPacket\**" />
-    <EmbeddedResource Remove="07 - CarStatusPacket\**" />
     <EmbeddedResource Remove="08 - FinalClassificationPacket\**" />
     <EmbeddedResource Remove="09 - LobbyInfoPacket\**" />
     <EmbeddedResource Remove="10 - CarDamagePacket\**" />
@@ -26,7 +24,6 @@
     <EmbeddedResource Remove="8 - FinalClassificationPacket\**" />
     <EmbeddedResource Remove="9 - LobbyInfoPacket\**" />
     <None Remove="07 - CarSetupPacket\**" />
-    <None Remove="07 - CarStatusPacket\**" />
     <None Remove="08 - FinalClassificationPacket\**" />
     <None Remove="09 - LobbyInfoPacket\**" />
     <None Remove="10 - CarDamagePacket\**" />
@@ -34,6 +31,13 @@
     <None Remove="7 - CarStatusPacket\**" />
     <None Remove="8 - FinalClassificationPacket\**" />
     <None Remove="9 - LobbyInfoPacket\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.1" />
   </ItemGroup>
 
 </Project>

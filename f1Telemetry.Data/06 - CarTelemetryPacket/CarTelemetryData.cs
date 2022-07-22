@@ -18,7 +18,7 @@ public class CarTelemetryData
     byte m_drs;                      // 0 = off, 1 = on
     byte m_revLightsPercent;         // Rev lights indicator (percentage)
     ushort m_revLightsBitValue;        // Rev lights (bit 0 = leftmost LED, bit 14 = rightmost LED)
-    ushort[] m_brakesTemperature = new ushort[4];     // Brakes temperature (celsius)
+    ushort[] m_brakesTemperature = new ushort[4];     // Brakes temperature (celsius) 30
     byte[] m_tyresSurfaceTemperature = new byte[4]; // Tyres surface temperature (celsius)
     byte[] m_tyresInnerTemperature = new byte[4]; // Tyres inner temperature (celsius)
     ushort m_engineTemperature;        // Engine temperature (celsius)

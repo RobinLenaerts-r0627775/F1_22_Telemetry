@@ -1,7 +1,6 @@
 
 using f1Telemetry.UI.Services;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
+using f1Telemetry.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<UDPService>();
+//var connectionString = builder.Configuration.GetConnectionString("localhost") ??
+//                       throw new InvalidOperationException("Connection string 'localhost' not found.");
+
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
 
 var app = builder.Build();
 

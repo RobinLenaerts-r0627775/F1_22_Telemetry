@@ -11,6 +11,12 @@ public class UDPService
     public PacketSessionData sessionPacket;
     public PacketLapData lapDataPacket;
 
+    public static int Test { get; set; }
+
+    public static void Count()
+    {
+        Test++;
+    }
     public async void Listen()
     {
         UdpClient client = null;

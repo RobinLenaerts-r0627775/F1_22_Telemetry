@@ -28,11 +28,13 @@ public class PacketCarTelemetryData
         var reader = new BinaryReader(new MemoryStream(packet));
         var m_header = PacketHeader.FromArray(reader.ReadBytes(24));
 
-        var bytes = ""; //TODO: 
+        var bytes = reader.ReadBytes(1320);
         for (int i = 0; i < 22; i++)
         {
-            m_carTelemetryData[i] = CarTelemetryData.FromArray(packet);
+            m_carTelemetryData[i] = CarTelemetryData.FromArray(bytes);
         }
-
+        m_mfdPanelIndex = reader.ReadByte();
+        m_mfdPanelIndexSecondaryPlayer = reader.ReadByte();
+        m_suggestedGear = reader.ReadSByte();
     }
 }
