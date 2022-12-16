@@ -1,28 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace f1Telemetry.Data
+﻿namespace f1Telemetry.Data;
+public class PacketParticipantsData
 {
-    public class PacketParticipantsData
+    readonly PacketHeader m_header; // Header
+    readonly byte m_numActiveCars; // Number of active cars in the data – should match number of cars on HUD
+    readonly ParticipantData[] m_participants = new ParticipantData[22];
+
+    public PacketParticipantsData(byte[] packet)
     {
-        PacketHeader m_header; // Header
-        byte m_numActiveCars; // Number of active cars in the data – should match number of cars on HUD
-        ParticipantData[] m_participants = new ParticipantData[22];
+        var reader = new BinaryReader(new MemoryStream(packet));
+        m_header = PacketHeader.FromArray(reader.ReadBytes(24));
 
-        public PacketParticipantsData(byte[] packet)
+        m_numActiveCars = reader.ReadByte();
+        var bytes = reader.ReadBytes(56);
+        for (int i = 0; i < 22; i++)
         {
-            var reader = new BinaryReader(new MemoryStream(packet));
-            var m_header = PacketHeader.FromArray(reader.ReadBytes(24));
-
-            m_numActiveCars = reader.ReadByte();
-            var bytes = reader.ReadBytes(56);
-            for (int i = 0; i < 22; i++)
-            {
-                m_participants[i] = ParticipantData.FromArray(bytes);
-            }
+            m_participants[i] = ParticipantData.FromArray(bytes);
         }
     }
 }

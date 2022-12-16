@@ -1,27 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace f1Telemetry.Data
+﻿namespace f1Telemetry.Data
 {
     public class PacketEventData
     {
-        PacketHeader m_header; // Header
-        byte[] m_eventStringCode = new byte[4]; // Event string code, see below
+        readonly PacketHeader m_header; // Header
+        readonly byte[] m_eventStringCode = new byte[4]; // Event string code, see below
 
-        EventDataDetails m_eventDetails; // Event details - should be interpreted differently
+        readonly EventDataDetails m_eventDetails; // Event details - should be interpreted differently
         // for each type
 
         public PacketEventData(byte[] packet)
         {
             var reader = new BinaryReader(new MemoryStream(packet));
-            var m_header = PacketHeader.FromArray(reader.ReadBytes(24));
+            m_header = PacketHeader.FromArray(reader.ReadBytes(24));
 
             m_eventStringCode = reader.ReadBytes(4);
             var eventStringCode = Encoding.ASCII.GetString(m_eventStringCode);
-            byte[] bytes = new byte[0];
+            byte[] bytes = Array.Empty<byte>();
             switch (eventStringCode)
             {
                 case "SSTA":
@@ -70,7 +64,6 @@ namespace f1Telemetry.Data
                     bytes = reader.ReadBytes(4);
                     break;
             }
-
             m_eventDetails = EventDataDetails.FromArray(bytes, eventStringCode);
         }
     }
