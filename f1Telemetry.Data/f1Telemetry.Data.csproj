@@ -8,25 +8,36 @@
 
   <ItemGroup>
     <Compile Remove="07 - CarSetupPacket\**" />
+    <Compile Remove="08 - FinalClassificationPacket\**" />
+    <Compile Remove="09 - LobbyInfoPacket\**" />
+    <Compile Remove="10 - CarDamagePacket\**" />
+    <Compile Remove="11 - SessionHistoryPacket\**" />
     <Compile Remove="7 - CarStatusPacket\**" />
     <Compile Remove="8 - FinalClassificationPacket\**" />
     <Compile Remove="9 - LobbyInfoPacket\**" />
     <EmbeddedResource Remove="07 - CarSetupPacket\**" />
+    <EmbeddedResource Remove="08 - FinalClassificationPacket\**" />
+    <EmbeddedResource Remove="09 - LobbyInfoPacket\**" />
+    <EmbeddedResource Remove="10 - CarDamagePacket\**" />
+    <EmbeddedResource Remove="11 - SessionHistoryPacket\**" />
     <EmbeddedResource Remove="7 - CarStatusPacket\**" />
     <EmbeddedResource Remove="8 - FinalClassificationPacket\**" />
     <EmbeddedResource Remove="9 - LobbyInfoPacket\**" />
     <None Remove="07 - CarSetupPacket\**" />
+    <None Remove="08 - FinalClassificationPacket\**" />
+    <None Remove="09 - LobbyInfoPacket\**" />
+    <None Remove="10 - CarDamagePacket\**" />
+    <None Remove="11 - SessionHistoryPacket\**" />
     <None Remove="7 - CarStatusPacket\**" />
     <None Remove="8 - FinalClassificationPacket\**" />
     <None Remove="9 - LobbyInfoPacket\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="07 - CarStatusPacket\" />
-    <Folder Include="08 - FinalClassificationPacket\" />
-    <Folder Include="09 - LobbyInfoPacket\" />
-    <Folder Include="10 - CarDamagePacket\" />
-    <Folder Include="11 - SessionHistoryPacket\" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.1" />
   </ItemGroup>
 
 </Project>

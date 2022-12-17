@@ -7,14 +7,19 @@
 <h1>F1 Telemetry!</h1>
 
 <p>
-    @m_sector1TimeInMS
+    @UDPService.Test
 </p>
 
 @code {
-    private ushort m_sector1TimeInMS;
+
 
     protected override void OnInitialized()
     {
-        m_sector1TimeInMS = _service.lapDataPacket.m_header.m_packetFormat;
+        Task.Run(() => {
+            while (true) {
+                UDPService.Count();
+            }
+        });
+        UDPService.Count();
     }
 }

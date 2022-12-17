@@ -66,5 +66,7 @@
             }
             m_eventDetails = EventDataDetails.FromArray(bytes, eventStringCode);
         }
+
+        m_eventDetails = EventDataDetails.FromArray(bytes, eventStringCode);
     }
 }

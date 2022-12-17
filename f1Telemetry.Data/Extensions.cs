@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace f1Telemetry.Data
+namespace f1Telemetry.Data;
+
+public static class Extensions
 {
-    public static class Extensions
+    public static T[] SubArray<T>(this T[] array, int offset, int length)
     {
-        public static T[] SubArray<T>(this T[] array, int offset, int length)
-        {
-            T[] result = new T[length];
-            Array.Copy(array, offset, result, 0, length);
-            return result;
-        }
+        T[] result = new T[length];
+        Array.Copy(array, offset, result, 0, length);
+        return result;
     }
 }
