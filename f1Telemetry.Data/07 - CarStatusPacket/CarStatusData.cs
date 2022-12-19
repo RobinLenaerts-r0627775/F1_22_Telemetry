@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace f1Telemetry.Data;
+﻿namespace f1Telemetry.Data;
 public class CarStatusData
 {
     byte m_tractionControl;          // Traction control - 0 = off, 1 = medium, 2 = full
@@ -50,34 +44,31 @@ public class CarStatusData
     public static CarStatusData FromArray(byte[] packet)
     {
         var reader = new BinaryReader(new MemoryStream(packet));
-        var carStatusData = new CarStatusData();
-
-        carStatusData.m_tractionControl = reader.ReadByte();
-        carStatusData.m_antiLockBrakes = reader.ReadByte();
-        carStatusData.m_fuelMix = reader.ReadByte();
-        carStatusData.m_frontBrakeBias = reader.ReadByte();
-        carStatusData.m_pitLimiterStatus = reader.ReadByte();
-        carStatusData.m_fuelInTank = reader.ReadSingle();
-        carStatusData.m_fuelCapacity = reader.ReadSingle();
-        carStatusData.m_fuelRemainingLaps = reader.ReadSingle();
-        carStatusData.m_maxRPM = reader.ReadUInt16();
-        carStatusData.m_idleRPM = reader.ReadUInt16();
-        carStatusData.m_maxGears = reader.ReadByte();
-        carStatusData.m_drsAllowed = reader.ReadByte();
-        carStatusData.m_drsActivationDistance = reader.ReadUInt16();
-        carStatusData.m_actualTyreCompound = reader.ReadByte();
-        carStatusData.m_visualTyreCompound = reader.ReadByte();
-        carStatusData.m_tyresAgeLaps = reader.ReadByte();
-        carStatusData.m_vehicleFiaFlags = reader.ReadSByte();
-        carStatusData.m_ersStoreEnergy = reader.ReadSingle();
-        carStatusData.m_ersDeployMode = reader.ReadByte();
-        carStatusData.m_ersHarvestedThisLapMGUK = reader.ReadSingle();
-        carStatusData.m_ersHarvestedThisLapMGUH = reader.ReadSingle();
-        carStatusData.m_ersDeployedThisLap = reader.ReadSingle();
-        carStatusData.m_networkPaused = reader.ReadByte(); // 47    
-
-        return carStatusData;
-
+        return new CarStatusData
+        {
+            m_tractionControl = reader.ReadByte(),
+            m_antiLockBrakes = reader.ReadByte(),
+            m_fuelMix = reader.ReadByte(),
+            m_frontBrakeBias = reader.ReadByte(),
+            m_pitLimiterStatus = reader.ReadByte(),
+            m_fuelInTank = reader.ReadSingle(),
+            m_fuelCapacity = reader.ReadSingle(),
+            m_fuelRemainingLaps = reader.ReadSingle(),
+            m_maxRPM = reader.ReadUInt16(),
+            m_idleRPM = reader.ReadUInt16(),
+            m_maxGears = reader.ReadByte(),
+            m_drsAllowed = reader.ReadByte(),
+            m_drsActivationDistance = reader.ReadUInt16(),
+            m_actualTyreCompound = reader.ReadByte(),
+            m_visualTyreCompound = reader.ReadByte(),
+            m_tyresAgeLaps = reader.ReadByte(),
+            m_vehicleFiaFlags = reader.ReadSByte(),
+            m_ersStoreEnergy = reader.ReadSingle(),
+            m_ersDeployMode = reader.ReadByte(),
+            m_ersHarvestedThisLapMGUK = reader.ReadSingle(),
+            m_ersHarvestedThisLapMGUH = reader.ReadSingle(),
+            m_ersDeployedThisLap = reader.ReadSingle(),
+            m_networkPaused = reader.ReadByte() // 47    
+        };
     }
-
 }

@@ -19,7 +19,6 @@
             switch (eventStringCode)
             {
                 case "SSTA":
-                    break;
                 case "SEND":
                     break;
                 case "FTLP":
@@ -29,7 +28,6 @@
                     bytes = reader.ReadBytes(1);
                     break;
                 case "DRSE":
-                    break;
                 case "DRSD":
                     break;
                 case "TMPT":
@@ -52,8 +50,6 @@
                 case "LGOT":
                     break;
                 case "DTSV":
-                    bytes = reader.ReadBytes(1);
-                    break;
                 case "SGSV":
                     bytes = reader.ReadBytes(1);
                     break;
@@ -66,7 +62,5 @@
             }
             m_eventDetails = EventDataDetails.FromArray(bytes, eventStringCode);
         }
-
-        m_eventDetails = EventDataDetails.FromArray(bytes, eventStringCode);
     }
 }
