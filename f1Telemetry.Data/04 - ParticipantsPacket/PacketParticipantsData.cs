@@ -11,10 +11,9 @@ public class PacketParticipantsData
         m_header = PacketHeader.FromArray(reader.ReadBytes(24));
 
         m_numActiveCars = reader.ReadByte();
-        var bytes = reader.ReadBytes(56);
         for (int i = 0; i < 22; i++)
         {
-            m_participants[i] = ParticipantData.FromArray(bytes);
+            m_participants[i] = ParticipantData.FromArray(reader.ReadBytes(56));
         }
     }
 }

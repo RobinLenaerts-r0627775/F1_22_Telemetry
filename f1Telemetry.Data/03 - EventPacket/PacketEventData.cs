@@ -19,7 +19,6 @@ public class PacketEventData
         switch (eventStringCode)
         {
             case "SSTA":
-                break;
             case "SEND":
                 break;
             case "FTLP":
@@ -29,7 +28,6 @@ public class PacketEventData
                 bytes = reader.ReadBytes(1);
                 break;
             case "DRSE":
-                break;
             case "DRSD":
                 break;
             case "TMPT":
@@ -52,8 +50,6 @@ public class PacketEventData
             case "LGOT":
                 break;
             case "DTSV":
-                bytes = reader.ReadBytes(1);
-                break;
             case "SGSV":
                 bytes = reader.ReadBytes(1);
                 break;
