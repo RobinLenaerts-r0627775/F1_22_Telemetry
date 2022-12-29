@@ -7,9 +7,18 @@ namespace f1Telemetry.UI.Services;
 
 public class UDPService
 {
-    public PacketMotionData motionPacket;
-    public PacketSessionData sessionPacket;
-    public PacketLapData lapDataPacket;
+    public PacketMotionData MotionPacket { get; set; }
+    public PacketSessionData SessionPacket {get; set;}
+    public PacketLapData LapDataPacket { get; set; }
+    public PacketEventData EventDataPacket { get; set; }
+    public PacketParticipantsData ParticipantsPacket { get; set; }
+    public PacketCarSetupData CarSetupsPacket { get; set; }
+    public PacketCarTelemetryData CarTelemetryPacket { get; set; }
+    public PacketCarSetupData CarStatusPacket { get; set; }
+    public PacketFinalClassificationData FinalClassificationPacket { get; set; }
+    public PacketLobbyInfoData LobbyInfoPacket { get; set; }
+    public PacketCarDamageData CarDamagePacket { get; set; }
+    public PacketSessionData SessionHistoryPacket { get; set; }
 
     public static int Test { get; set; }
 
@@ -17,9 +26,10 @@ public class UDPService
     {
         Test++;
     }
+
     public async void Listen()
     {
-        UdpClient client = null;
+        UdpClient? client;
         try
         {
             client = new UdpClient(20777);
@@ -28,51 +38,52 @@ public class UDPService
         catch (Exception ex)
         {
             Debug.WriteLine(ex.Message);
+            return;
         }
 
         while (true)
         {
-            IPEndPoint server = new IPEndPoint(IPAddress.Any, 20777);
+            IPEndPoint server = new(IPAddress.Any, 20777);
             byte[] packet = client.Receive(ref server);
             var header = PacketHeader.FromArray(packet.SubArray(0, 24));
             switch (header.m_packetId)
             {
                 case 0:
-                    motionPacket = new PacketMotionData(packet);
+                    MotionPacket = new PacketMotionData(packet);
                     break;
                 case 1:
-                    sessionPacket = new PacketSessionData(packet);
+                    SessionPacket = new PacketSessionData(packet);
                     break;
                 case 2:
-                    lapDataPacket = new PacketLapData(packet);
+                    LapDataPacket = new PacketLapData(packet);
                     break;
-                /*case 3:
-                    var eventPacket = new PacketSessionData(packet);
+                case 3:
+                    EventDataPacket = new PacketEventData(packet);
                     break;
                 case 4:
-                    var participantsPacket = new PacketSessionData(packet);
+                    var participantsPacket = new PacketParticipantsData(packet);
                     break;
                 case 5:
-                    var carSetupsPacket = new PacketSessionData(packet);
+                    var carSetupsPacket = new PacketCarSetupData(packet);
                     break;
                 case 6:
-                    var carTelemetryPacket = new PacketSessionData(packet);
+                    var carTelemetryPacket = new PacketCarTelemetryData(packet);
                     break;
                 case 7:
-                    var carStatusPacket = new PacketSessionData(packet);
+                    var carStatusPacket = new PacketCarSetupData(packet);
                     break;
                 case 8:
-                    var finalClassificationPacket = new PacketSessionData(packet);
+                    var finalClassificationPacket = new PacketFinalClassificationData(packet);
                     break;
                 case 9:
-                    var lobbyInfoPacket = new PacketSessionData(packet);
+                    var lobbyInfoPacket = new PacketLobbyInfoData(packet);
                     break;
                 case 10:
-                    var carDamagePacket = new PacketSessionData(packet);
+                    var carDamagePacket = new PacketCarDamageData(packet);
                     break;
                 case 11:
                     var sessionHistoryPacket = new PacketSessionData(packet);
-                    break;*/
+                    break;
             }
         }
     }

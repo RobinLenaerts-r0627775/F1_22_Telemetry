@@ -29,7 +29,7 @@ while (true)
         case 3:
             var eventPacket = new PacketEventData(packet);
             break;
-        /*case 4:
+        case 4:
             var participantsPacket = new PacketSessionData(packet);
             break;
         case 5:
@@ -52,6 +52,6 @@ while (true)
             break;
         case 11:
             var sessionHistoryPacket = new PacketSessionData(packet);
-            break;*/
+            break;
     }
 }

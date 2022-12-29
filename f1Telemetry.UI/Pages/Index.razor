@@ -6,6 +6,8 @@
 
 <h1>F1 Telemetry!</h1>
 
+<input type="text" @bind=@_service.MotionPacket />
+
 <p>
     @UDPService.Test
 </p>
@@ -15,11 +17,6 @@
 
     protected override void OnInitialized()
     {
-        Task.Run(() => {
-            while (true) {
-                UDPService.Count();
-            }
-        });
-        UDPService.Count();
+        _service.Listen();
     }
 }
