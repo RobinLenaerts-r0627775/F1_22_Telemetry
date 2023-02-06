@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "f1Telemetry.Data": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "MYSQL_ROOT_PASSWORD": "klp246135",
+        "MYSQL_ROOT_USER": "admin",
+        "MYSQL_HOST": "192.168.0.7",
+        "MYSQL_PORT": "3306"
+      }
+    }
+  }
+}
