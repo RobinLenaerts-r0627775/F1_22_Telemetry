@@ -1,6 +1,5 @@
 
 using f1Telemetry.UI.Services;
-using f1Telemetry.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

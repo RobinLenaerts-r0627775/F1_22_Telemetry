@@ -1,124 +1,147 @@
 ﻿namespace f1Telemetry.Data;
 public class PacketSessionData
 {
-    readonly PacketHeader m_header; // Header
+    public PacketHeader Header { get; set; }
 
-    readonly byte m_weather; /* Weather - 0 = clear, 1 = light cloud, 2 = overcast
-                        * 3 = light rain, 4 = heavy rain, 5 = storm
-                    */
+    public byte Weather { get; set; }
 
-    readonly sbyte m_trackTemperature; // Track temp. in degrees celsius
-    readonly sbyte m_airTemperature; // Air temp. in degrees celsius
-    readonly byte m_totalLaps; // Total number of laps in this race
-    readonly ushort m_trackLength; // Track length in metres
+    public sbyte TrackTemperature { get; set; }
 
-    readonly byte m_sessionType; /* 0 = unknown, 1 = P1, 2 = P2, 3 = P3, 4 = Short P
-                            * 5 = Q1, 6 = Q2, 7 = Q3, 8 = Short Q, 9 = OSQ
-                            * 10 = R, 11 = R2, 12 = R3, 13 = Time Trial
-                            */
-    readonly sbyte m_trackId; // -1 for unknown, see appendix
-    readonly byte m_formula; /* Formula, 0 = F1 Modern, 1 = F1 Classic, 2 = F2,
-                        * 3 = F1 Generic, 4 = Beta, 5 = Supercars
-                        * 6 = Esports, 7 = F2 2021
-                        */
-    readonly ushort m_sessionTimeLeft; // Time left in session in seconds
-    readonly ushort m_sessionDuration; // Session duration in seconds
-    readonly byte m_pitSpeedLimit; // Pit speed limit in kilometres per hour
-    readonly byte m_gamePaused; // Whether the game is paused – network game only
-    readonly byte m_isSpectating; // Whether the player is spectating
-    readonly byte m_spectatorCarIndex; // Index of the car being spectated
-    readonly byte m_sliProNativeSupport; // SLI Pro support, 0 = inactive, 1 = active
-    readonly byte m_numMarshalZones; // Number of marshal zones to follow
-    readonly MarshalZone[] m_marshalZones; // List of marshal zones – max 21
+    public sbyte AirTemperature { get; set; }
 
-    readonly byte m_safetyCarStatus; /* 0 = no safety car, 1 = full
-                                * 2 = virtual, 3 = formation lap
-                                */
+    public byte TotalLaps { get; set; }
 
-    readonly byte m_networkGame; // 0 = offline, 1 = online
-    readonly byte m_numWeatherForecastSamples; // Number of weather samples to follow
-    readonly WeatherForecastSample[] m_weatherForecastSamples; //56 // Array of weather forecast samples
-    readonly byte m_forecastAccuracy; // 0 = Perfect, 1 = Approximate
-    readonly byte m_aiDifficulty; // AI Difficulty rating – 0-110
-    readonly uint m_seasonLinkIdentifier; // Identifier for season - persists across saves
-    readonly uint m_weekendLinkIdentifier; // Identifier for weekend - persists across saves
-    readonly uint m_sessionLinkIdentifier; // Identifier for session - persists across saves
-    readonly byte m_pitStopWindowIdealLap; // Ideal lap to pit on for current strategy (player)
-    readonly byte m_pitStopWindowLatestLap; // Latest lap to pit on for current strategy (player)
-    readonly byte m_pitStopRejoinPosition; // Predicted position to rejoin at (player)
-    readonly byte m_steeringAssist; // 0 = off, 1 = on
-    readonly byte m_brakingAssist; // 0 = off, 1 = low, 2 = medium, 3 = high
-    readonly byte m_gearboxAssist; // 1 = manual, 2 = manual & suggested gear, 3 = auto
-    readonly byte m_pitAssist; // 0 = off, 1 = on
-    readonly byte m_pitReleaseAssist; // 0 = off, 1 = on
-    readonly byte m_ERSAssist; // 0 = off, 1 = on
-    readonly byte m_DRSAssist; // 0 = off, 1 = on
-    readonly byte m_dynamicRacingLine; // 0 = off, 1 = corners only, 2 = full
-    readonly byte m_dynamicRacingLineType; // 0 = 2D, 1 = 3D
-    readonly byte m_gameMode; // Game mode id - see appendix
-    readonly byte m_ruleSet; // Ruleset - see appendix
-    readonly uint m_timeOfDay; // Local time of day - minutes since midnight
+    public ushort TrackLength { get; set; }
 
-    readonly byte m_sessionLength; /* 0 = None, 2 = Very Short, 3 = Short, 4 = Medium
-                            * 5 = Medium Long, 6 = Long, 7 = Full
-                            */
+    public byte SessionType { get; set; }
+
+    public sbyte TrackId { get; set; }
+
+    public byte Formula { get; set; }
+
+    public ushort SessionTimeLeft { get; set; }
+
+    public ushort SessionDuration { get; set; }
+
+    public byte PitSpeedLimit { get; set; }
+
+    public byte GamePaused { get; set; }
+
+    public byte IsSpectating { get; set; }
+
+    public byte SpectatorCarIndex { get; set; }
+
+    public byte SliProNativeSupport { get; set; }
+
+    public byte NumMarshalZones { get; set; }
+
+    public MarshalZone[] MarshalZones { get; set; }
+
+    public byte SafetyCarStatus { get; set; }
+
+    public byte NetworkGame { get; set; }
+
+    public byte NumWeatherForecastSamples { get; set; }
+
+    public WeatherForecastSample[] WeatherForecastSamples { get; set; }
+
+    public byte ForecastAccuracy { get; set; }
+
+    public byte AiDifficulty { get; set; }
+
+    public uint SeasonLinkIdentifier { get; set; }
+
+    public uint WeekendLinkIdentifier { get; set; }
+
+    public uint SessionLinkIdentifier { get; set; }
+
+    public byte PitStopWindowIdealLap { get; set; }
+
+    public byte PitStopWindowLatestLap { get; set; }
+
+    public byte PitStopRejoinPosition { get; set; }
+
+    public byte SteeringAssist { get; set; }
+
+    public byte BrakingAssist { get; set; }
+
+    public byte GearboxAssist { get; set; }
+
+    public byte PitAssist { get; set; }
+
+    public byte PitReleaseAssist { get; set; }
+
+    public byte ErsAssist { get; set; }
+
+    public byte DrsAssist { get; set; }
+
+    public byte DynamicRacingLine { get; set; }
+
+    public byte DynamicRacingLineType { get; set; }
+
+    public byte GameMode { get; set; }
+
+    public byte RuleSet { get; set; }
+
+    public uint TimeOfDay { get; set; }
+
+    public byte SessionLength { get; set; }
 
     public PacketSessionData(byte[] packet)
     {
         var reader = new BinaryReader(new MemoryStream(packet));
-        m_header = PacketHeader.FromArray(reader.ReadBytes(24));
+        Header = PacketHeader.FromArray(reader.ReadBytes(24));
 
-        m_weather = reader.ReadByte();
-        m_trackTemperature = reader.ReadSByte();
-        m_airTemperature = reader.ReadSByte();
-        m_totalLaps = reader.ReadByte();
-        m_trackLength = reader.ReadUInt16();
-        m_sessionType = reader.ReadByte();
-        m_trackId = reader.ReadSByte();
-        m_formula = reader.ReadByte();
-        m_sessionTimeLeft = reader.ReadUInt16();
-        m_sessionDuration = reader.ReadUInt16();
-        m_pitSpeedLimit = reader.ReadByte();
-        m_gamePaused = reader.ReadByte();
-        m_isSpectating = reader.ReadByte();
-        m_spectatorCarIndex = reader.ReadByte();
-        m_sliProNativeSupport = reader.ReadByte();
-        m_numMarshalZones = reader.ReadByte();
-        m_marshalZones = new MarshalZone[m_numMarshalZones];
-        for (int i = 0; i < m_numMarshalZones; i++)
+        Weather = reader.ReadByte();
+        TrackTemperature = reader.ReadSByte();
+        AirTemperature = reader.ReadSByte();
+        TotalLaps = reader.ReadByte();
+        TrackLength = reader.ReadUInt16();
+        SessionType = reader.ReadByte();
+        TrackId = reader.ReadSByte();
+        Formula = reader.ReadByte();
+        SessionTimeLeft = reader.ReadUInt16();
+        SessionDuration = reader.ReadUInt16();
+        PitSpeedLimit = reader.ReadByte();
+        GamePaused = reader.ReadByte();
+        IsSpectating = reader.ReadByte();
+        SpectatorCarIndex = reader.ReadByte();
+        SliProNativeSupport = reader.ReadByte();
+        NumMarshalZones = reader.ReadByte();
+        MarshalZones = new MarshalZone[NumMarshalZones];
+        for (int i = 0; i < NumMarshalZones; i++)
         {
-            m_marshalZones[i] = MarshalZone.FromArray(reader.ReadBytes(5));
+            MarshalZones[i] = MarshalZone.FromArray(reader.ReadBytes(5));
+        }
+        SafetyCarStatus = reader.ReadByte();
+        NetworkGame = reader.ReadByte();
+        NumWeatherForecastSamples = reader.ReadByte();
+        WeatherForecastSamples = new WeatherForecastSample[NumWeatherForecastSamples];
+        for (int i = 0; i < NumWeatherForecastSamples; i++)
+        {
+            WeatherForecastSamples[i] = WeatherForecastSample.FromArray(reader.ReadBytes(8));
         }
 
-        m_safetyCarStatus = reader.ReadByte();
-        m_networkGame = reader.ReadByte();
-        m_numWeatherForecastSamples = reader.ReadByte();
-        m_weatherForecastSamples = new WeatherForecastSample[m_numWeatherForecastSamples];
-        for (int i = 0; i < m_numWeatherForecastSamples; i++)
-        {
-            m_weatherForecastSamples[i] = WeatherForecastSample.FromArray(reader.ReadBytes(7));
-        }
-
-        m_forecastAccuracy = reader.ReadByte();
-        m_aiDifficulty = reader.ReadByte();
-        m_seasonLinkIdentifier = reader.ReadUInt32();
-        m_weekendLinkIdentifier = reader.ReadUInt32();
-        m_sessionLinkIdentifier = reader.ReadByte();
-        m_pitStopWindowIdealLap = reader.ReadByte();
-        m_pitStopWindowLatestLap = reader.ReadByte();
-        m_pitStopRejoinPosition = reader.ReadByte();
-        m_steeringAssist = reader.ReadByte();
-        m_brakingAssist = reader.ReadByte();
-        m_gearboxAssist = reader.ReadByte();
-        m_pitAssist = reader.ReadByte();
-        m_pitReleaseAssist = reader.ReadByte();
-        m_ERSAssist = reader.ReadByte();
-        m_DRSAssist = reader.ReadByte();
-        m_dynamicRacingLine = reader.ReadByte();
-        m_dynamicRacingLineType = reader.ReadByte();
-        m_gameMode = reader.ReadByte();
-        m_ruleSet = reader.ReadByte();
-        m_timeOfDay = reader.ReadUInt32();
-        m_sessionLength = reader.ReadByte();
+        ForecastAccuracy = reader.ReadByte();
+        AiDifficulty = reader.ReadByte();
+        SeasonLinkIdentifier = reader.ReadUInt32();
+        WeekendLinkIdentifier = reader.ReadUInt32();
+        SessionLinkIdentifier = reader.ReadByte();
+        PitStopWindowIdealLap = reader.ReadByte();
+        PitStopWindowLatestLap = reader.ReadByte();
+        PitStopRejoinPosition = reader.ReadByte();
+        SteeringAssist = reader.ReadByte();
+        BrakingAssist = reader.ReadByte();
+        GearboxAssist = reader.ReadByte();
+        PitAssist = reader.ReadByte();
+        PitReleaseAssist = reader.ReadByte();
+        ErsAssist = reader.ReadByte();
+        DrsAssist = reader.ReadByte();
+        DynamicRacingLine = reader.ReadByte();
+        DynamicRacingLineType = reader.ReadByte();
+        GameMode = reader.ReadByte();
+        RuleSet = reader.ReadByte();
+        TimeOfDay = reader.ReadUInt32();
+        SessionLength = reader.ReadByte();
     }
 }
