@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "f1Telemetry.Test", "f1Telemetry.Test\f1Telemetry.Test.csproj", "{9675D444-4E3E-45E7-B956-3C600F1A08CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,14 @@ Global
 		{E6FAB62B-A30C-4DE2-AA81-CB9B6FC7C904}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E6FAB62B-A30C-4DE2-AA81-CB9B6FC7C904}.Release|x86.ActiveCfg = Release|Any CPU
 		{E6FAB62B-A30C-4DE2-AA81-CB9B6FC7C904}.Release|x86.Build.0 = Release|Any CPU
+		{9675D444-4E3E-45E7-B956-3C600F1A08CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9675D444-4E3E-45E7-B956-3C600F1A08CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9675D444-4E3E-45E7-B956-3C600F1A08CC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9675D444-4E3E-45E7-B956-3C600F1A08CC}.Debug|x86.Build.0 = Debug|Any CPU
+		{9675D444-4E3E-45E7-B956-3C600F1A08CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9675D444-4E3E-45E7-B956-3C600F1A08CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9675D444-4E3E-45E7-B956-3C600F1A08CC}.Release|x86.ActiveCfg = Release|Any CPU
+		{9675D444-4E3E-45E7-B956-3C600F1A08CC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
